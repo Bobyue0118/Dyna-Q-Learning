@@ -1,2 +1,2 @@
 # Dyna-Q-Learning
-Version control for Dyna-Q Learning program
+- Version control for Dyna-Q Learning program.
