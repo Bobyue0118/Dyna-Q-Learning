@@ -1,4 +1,5 @@
 # Run
+To see the result, type in your cmd or powershell:
 ```
 python main.py  
  ```  
