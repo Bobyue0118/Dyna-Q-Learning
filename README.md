@@ -1,5 +1,5 @@
 # Run
-> python main.py  
+>> python main.py  
 # Dyna-Q-Learning
 - Version control for Dyna-Q Learning program.  
 # Further Improvement
