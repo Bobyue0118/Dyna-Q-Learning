@@ -1,1 +1,1 @@
-Work hard
+- parameters tuned
