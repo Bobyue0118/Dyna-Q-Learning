@@ -15,7 +15,7 @@ if __name__ == "__main__":
     # Then you can delete it and write your own code.
 
     episodes             = 100
-    model_based_episodes = 6           # maze2 ... 5   maze1 ... 10
+    model_based_episodes = 5           # maze2 ... 5   maze1 ... 10
     env   = Maze()
     model = Model(actions=list(range(env.n_actions)))
     agent = Agent(actions=list(range(env.n_actions)))       # 从range(4)，也就是0,1,2,3（上下右左）四个行为中选择
@@ -31,7 +31,7 @@ if __name__ == "__main__":
             s_, r, done = env.step(a)
 
             # update Q model-free
-            agent.learn(str(s), a, r, str(s_), done)
+            agent.update(str(s), a, r, str(s_), done)
 
             model.store_transition(str(s), a, r, s_)
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
             for n in range(model_based_episodes):
                 ss, sa  = model.sample_s_a()
                 sr, ss_ = model.get_r_s_(ss, sa)
-                agent.learn(ss, sa, sr, str(ss_), done)
+                agent.update(ss, sa, sr, str(ss_), done)
 
             episode_reward += r
             s = s_

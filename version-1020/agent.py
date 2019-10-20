@@ -18,14 +18,13 @@ class Agent:
 
         # tune epsilon
         # sigmoid
-
         global cnt
-        epsilon_ = 1 / (1 + math.exp(cnt - 220))
-        if epsilon_ > 0.05:
+        epsilon_ = 1 / (1 + math.exp(cnt - 250))
+        if epsilon_ > 0.01:
             self.epsilon = epsilon_
             cnt = cnt + 1
         else:
-            self.epsilon = 0.05
+            self.epsilon = 0.01
         #print("self.epsilon is:", self.epsilon)
 
         # epsilon-greedy method
@@ -40,7 +39,7 @@ class Agent:
 
         return action
 
-    def learn(self, s, a, r, s_, done):
+    def update(self, s, a, r, s_, done):
         self.state_exist(s_)
 
         q_predict = self.qTable.loc[s, a]
@@ -54,8 +53,10 @@ class Agent:
         # decrease
         if 0 <= cnt < 100:
             self.alpha = 0.5
-        else:
+        elif 100 <= cnt <= 500:
             self.alpha = 0.2
+        else:
+            self.alpha = 0.1
 
         self.qTable.loc[s, a] += self.alpha * (q_target - q_predict)
 
@@ -96,6 +97,6 @@ class Model:
         r, s_ = self.storage.loc[s, a]
         return r, s_
 
-np.random.seed(10)
+np.random.seed(100)
 cnt = 0
     ### END CODE HERE ###
