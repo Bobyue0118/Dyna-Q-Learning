@@ -1,5 +1,5 @@
 # Information
-- This is the first part of homework3, namely the maze part
+- This is the first part of homework3 for AU332(Artificial Intelligence: Principles and Techniques), namely the maze part
 - Refer to [homework3.pdf](https://github.com/Bobyue0118/Dyna-Q-Learning/blob/master/homework3.pdf) to see the requirements
 # Run
 To see the result, find the path and run by:
