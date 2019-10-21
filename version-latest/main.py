@@ -1,7 +1,7 @@
 from agent import Agent, Model #import class Agent from agent
 import time
 
-maze = '2'
+maze = '1'
 
 if maze == '1':
     from maze_env1 import Maze
@@ -31,7 +31,7 @@ if __name__ == "__main__":
             s_, r, done = env.step(a)
 
             # update Q model-free
-            agent.update(str(s), a, r, str(s_), done)
+            agent.learn(str(s), a, r, str(s_), done)
 
             model.store_transition(str(s), a, r, s_)
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
             for n in range(model_based_episodes):
                 ss, sa  = model.sample_s_a()
                 sr, ss_ = model.get_r_s_(ss, sa)
-                agent.update(ss, sa, sr, str(ss_), done)
+                agent.learn(ss, sa, sr, str(ss_), done)
 
             episode_reward += r
             s = s_
