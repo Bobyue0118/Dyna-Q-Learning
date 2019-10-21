@@ -1,3 +1,6 @@
+# Information
+- This is the first part of homework3, namely the maze part
+- Refer to [homework3.pdf](https://github.com/Bobyue0118/Dyna-Q-Learning/blob/master/homework3.pdf) to see the requirements
 # Run
 To see the result, find the path and run by:
 ```
@@ -7,3 +10,5 @@ python3 main.py
 - Repo for version control for Dyna-Q Learning program.  
 # Latest Version
 - Refer to [version-1021](https://github.com/Bobyue0118/Dyna-Q-Learning/tree/master/version-1021)
+# Participant
+- Bo Yue, Automation Department, SEIEE, SJTU
